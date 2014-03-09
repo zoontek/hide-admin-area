@@ -13,4 +13,4 @@ Only use this if, for some obscure reason, you can't edit the .htaccess file / t
 ### Changelog
 
 1. Version 1.0, March 2014
-..* Initial release.
+  * Initial release.
