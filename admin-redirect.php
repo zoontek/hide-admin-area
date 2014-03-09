@@ -9,7 +9,7 @@
  * License URI: http://www.dbad-license.org/
  */
 
-define('ADMIN_PAGE', 'this-is-an-exemple');
+define('ADMIN_PAGE', 'custom-admin-page');
 define('SECRET_KEY', 'q6wuChuSEbr7spa7');
 
 function redirect_wp_login() {
