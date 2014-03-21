@@ -1,16 +1,26 @@
 ### What it does
 
-Admin Redirect is a small and dumb (…and crappy) WordPress plugin which changes the admin area url, and avoid access to wp-login.php or wp-admin using a secret key.
-Only use this if, for some obscure reason, you can't edit the .htaccess file / the nginx rules.
+Hide Admin Area is a (dumb) WordPress plugin which changes the admin area URL, and avoid access to wp-login.php or wp-admin using a secret key.
 
 ### How-to use it
 
-1. Extract the `admin-redirect-master` directory to your computer. Rename it if you want. Or use git clone, it's faster.
-2. Change the `ADMIN_PAGE` value in the `admin-redirect.php` file to what-the-fuck-you-want. Admin area will be available at `mywebsite.com/what-the-fuck-you-want`
-3. Change the `SECRET_KEY` value using a password generator, for example
-4. Upload the `admin-redirect` directory to your WordPress plugins directory (Default is `/wp-content/plugins/`)
+1. You know how to install WordPress plugins, right?
+2. Don't forget to activate it.
+3. By default, admin area is available at `http://my-website.com/where-my-wordpress-is/hidden-admin`
+4. You can change the admin area URL slug in WP general settings.
+
+### Why is this dumb?
+
+* You can't create something that will share the same URL as your admin area. So avoid using the same slug.
+* Come on. You have httpd.conf, .htaccess files, nginx rules. Don't be that guy who use WP plugins for everything.
+* Only use this if, for some obscure reason, you really can't do what I just say.
 
 ### Changelog
 
-1. Version 1.0, March 2014
+* Version 1.1, March 2014
+  * Code cleaning. It's not because it's dumb that it has to be crappy.
+  * You don't have to think about the secret key now. It's automatically generated at plugin activation.
+  * You can now modify the admin URL slug in WP general settings.
+
+* Version 1.0, March 2014
   * Initial release.
