@@ -2,11 +2,9 @@
 /**
  * Plugin Name:   Hide Admin Area
  * Description:   Let's play with curious visitors.
- * Version:       1.1
+ * Version:       1.1.1
  * Author:        Zoontek
  * Author URI:    http://twitter.com/zoontek
- * Text Domain:   haa
- * Domain Path:   /lang
  * 
  * License:       DBAD
  * License URI:   http://www.dbad-license.org/
@@ -27,7 +25,7 @@ class Hide_Admin_Area {
   protected static $instance = null;
 
   /**
-   * 
+   * Variables for the admin area url slug and secret key.
    * 
    * @since    1.1
    * @var      string
@@ -37,7 +35,7 @@ class Hide_Admin_Area {
 
   /**
    * Initialize the plugin by setting localization and loading public scripts and styles.
-   *
+   * 
    * @since    1.1
    */
   private function __construct() {
@@ -45,14 +43,14 @@ class Hide_Admin_Area {
     $this->secret_key = get_option('haa_secret_key', 'no_secret_key');
 
     add_action('login_head', array($this, 'redirect_wp_login'));
-    add_action('wp', array($this, 'redirect_with_secret_key'));
+    add_action('init', array($this, 'redirect_with_secret_key'));
 
     add_filter('admin_init', array($this ,'register_haa_settings'));
   }
 
   /**
    * Return an instance of this class.
-   *
+   * 
    * @since    1.1
    * @return   object   A single instance of this class.
    */
@@ -67,7 +65,7 @@ class Hide_Admin_Area {
 
   /**
    * Fired when the plugin is activated.
-   *
+   * 
    * @since    1.1
    */
   public static function activate() {
@@ -79,7 +77,7 @@ class Hide_Admin_Area {
 
   /**
    * Fired when the plugin is deactivated.
-   *
+   * 
    * @since    1.1
    */
   public static function deactivate() {
@@ -91,7 +89,7 @@ class Hide_Admin_Area {
 
   /**
    * Register settings in admin area.
-   *
+   * 
    * @since    1.1
    */
   public function register_haa_settings() {
@@ -119,7 +117,7 @@ class Hide_Admin_Area {
 
   /**
    * Display the admin setting field.
-   *
+   * 
    * @since    1.1
    */
   public function display_settings_field($args) {
@@ -131,7 +129,7 @@ class Hide_Admin_Area {
 
   /**
    * Avoid access to classics login pages without the secret_key
-   *
+   * 
    * @since    1.0
    */
   public function redirect_wp_login() {
@@ -145,7 +143,7 @@ class Hide_Admin_Area {
   
   /**
    * Redirect the user to the login page with secret key.
-   *
+   * 
    * @since    1.0
    */
   public function redirect_with_secret_key() {
@@ -159,7 +157,7 @@ class Hide_Admin_Area {
 
   /**
    * Get the current url to compare with the chosen admin url.
-   *
+   * 
    * @since    1.0
    * @return   string   Complete url of the page.
    */

@@ -17,6 +17,9 @@ Hide Admin Area is a (dumb) WordPress plugin which changes the admin area URL, a
 
 ### Changelog
 
+* Version 1.1.1, April 2014
+  * Change target hook.
+
 * Version 1.1, March 2014
   * Code cleaning. It's not because it's dumb that it has to be crappy.
   * You don't have to think about the secret key now. It's automatically generated at plugin activation.
